@@ -12,7 +12,7 @@ const HeroBanner = () => {
       p="20px"
     >
       <Typography color="#FF2625" fontWeight="600" fontSize="26px">
-        Fitness Club
+        Gym Buddy
       </Typography>
       <Typography
         fontWeight={700}
@@ -20,10 +20,10 @@ const HeroBanner = () => {
         mb="23px"
         mt="30px"
       >
-        Sweat, Smile <br /> and Repeat
+        Go Harder Than <br/> Last Time!
       </Typography>
       <Typography fontSize="22px" lineHeight="35px" mb={4}>
-        Check out the most effective exercises
+        Check Out Exercises That <br/> Make You A Complete Gym Buddy!
       </Typography>
       <Button
         variant="contained"
