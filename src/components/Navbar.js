@@ -28,7 +28,7 @@ const Navbar = () => {
         <Link
           to="/"
           style={{
-            textDecorationColor: "none",
+            textDecoration: "none",
             color: "#3A1212",
             borderBottom: "3px solid #FF2625",
           }}
