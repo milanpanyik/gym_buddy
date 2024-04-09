@@ -5,13 +5,21 @@ import { fetchData, exerciseOptions } from "../utils/fetchData";
 
 const SearchExercises = () => {
   const [search, setSearch] = useState("");
+  const [exercises, setExercises] = useState([]);
+  
   const handleSearch = async () => {
     if (search) {
       const exercisesData = await fetchData(
         "https://gym-fit.p.rapidapi.com/exercises/search",
         exerciseOptions
       );
-      console.log(exercisesData);
+      const searchedExercises = exercisesData.filter(
+        (exercise) =>
+          exercise.name.toLowerCase().includes(search) ||
+          exercise.bodyParts.toLowerCase().includes(search)
+      );
+      setSearch("");
+      setExercises(searchedExercises);
     }
   };
   return (
