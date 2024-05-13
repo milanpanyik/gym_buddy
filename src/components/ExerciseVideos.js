@@ -1,9 +1,38 @@
-import React from 'react'
+import React from "react";
+import { Box, Stack, Typography } from "@mui/material";
+const ExerciseVideos = ({ exerciseVideos, name }) => {
 
-const ExerciseVideos = () => {
+    console.log(exerciseVideos);
+
+    if(!exerciseVideos.length) return 'loading...';
   return (
-    <div>ExerciseVideos</div>
-  )
-}
+    <Box sx={{ marginTop: { lg: "200px", xs: "20px" } }} p="20px">
+      <Typography variant="h3" mb="33px">
+        Look at some videos about{" "}
+        <span style={{ color: "#ff2625", textTransform: "capitalize" }}>
+          {name}
+        </span>
+        !
+      </Typography>
+      <Stack justifyContent="flex-start" flexWrap="wrap" alignItems="center" sx={{
+        flexDirection: {lg: 'row'},
+        gap: {lg:'110', xs: '0'}
+      }}>
+        {exerciseVideos?.slice(0, 3).map((item, index)=>{
+             <a
+             key={index}
+             className="exercise-video"
+             href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
+             target="_blank"
+             rel="noreferrer"
+           >
+                <img src={item.video.thumbnails[0].url} alt={item.video.title}/>
+            </a>
+        })}
 
-export default ExerciseVideos
+      </Stack>
+    </Box>
+  );
+};
+
+export default ExerciseVideos;
