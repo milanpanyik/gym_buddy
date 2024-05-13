@@ -24,16 +24,20 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const handleSearch = async () => {
     if (search) {
       const exercisesData = await fetchData(
-        "https://exercisedb.p.rapidapi.com/exercises",
+        `https://exercisedb.p.rapidapi.com/exercises/name/${search}`,
         exerciseOptions
       );
+      console.log(exercisesData);
       const searchedExercises = exercisesData.filter(
         (exercise) =>
           exercise.name.toLowerCase().includes(search) ||
           exercise.target.toLowerCase().includes(search) ||
           exercise.equipment.toLowerCase().includes(search) ||
-          exercise.bodyPart.toLowerCase().includes(search)
+          exercise.bodyPart.toLowerCase().includes(search),
       );
+
+      window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
+
       setSearch("");
       setExercises(searchedExercises);
     }
@@ -48,7 +52,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         mb="50px"
         textAlign="center"
       >
-        Awesome Exercises You <br /> Should Know
+        Exercises You <br /> Should Know
       </Typography>
       <Box position="relative" mb="72px">
         <TextField
@@ -70,7 +74,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
             bgcolor: "#FF2625",
             color: "#fff",
             textTransform: "none",
-            width: { lg: "175px", xs: "80px" },
+            width: { lg: "173px", xs: "80px" },
             fontSize: { lg: "20px", xs: "14px" },
             height: "56px",
             position: "absolute",
