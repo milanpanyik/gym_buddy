@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { Button, Stack, Typography } from "@mui/material";
 
 const ExerciseCard = ({ exercise }) => {
+  const scrollTop = () =>{
+    window.scrollTo({ top: 4000, behavior: "smooth" });
+  };
   return (
     <Link className="exercise-card" to={`/exercise/${exercise.id}`}>
       <img src={exercise.gifUrl} alt={exercise.name} loading="lazy" />
@@ -16,6 +19,7 @@ const ExerciseCard = ({ exercise }) => {
             borderRadius: "20px",
             textTransform: "capitalize",
           }}
+          onClick={scrollTop}
         >
           {exercise.bodyPart}
         </Button>
@@ -28,6 +32,7 @@ const ExerciseCard = ({ exercise }) => {
             borderRadius: "20px",
             textTransform: "capitalize",
           }}
+          onClick={scrollTop}
         >
           {exercise.bodyPart}
         </Button>

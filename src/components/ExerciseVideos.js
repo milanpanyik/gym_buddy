@@ -14,26 +14,25 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
         !
       </Typography>
       <Stack
-        justifyContent="flex-start"
+        justifyContent="space-around"
         flexWrap="wrap"
-        alignItems="center"
+        alignItems="flex-start"
         sx={{
           flexDirection: { lg: "row" },
           gap: { lg: "110", xs: "0" },
         }}
       >
-        {exerciseVideos?.slice(0, 3).map((item, index) => ( 
+        {exerciseVideos?.slice(0, 3).map((item, index) => (
           <a
             key={index}
             className="exercise-video"
             href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
             target="_blank"
             rel="noreferrer"
-            
           >
             <img src={item.video.thumbnails[0].url} alt={item.video.title} />
-            <Box >
-              <Typography variant="h5" color="#000" >
+            <Box>
+              <Typography variant="h5" color="#000">
                 {item.video.title}
               </Typography>
               <Typography variant="h6" color="#000">
